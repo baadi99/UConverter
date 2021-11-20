@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.project.uconverter.HomePageFragment"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/action_homePageFragment_to_converterFragment"
+            app:destination="@id/converterFragment" />
+        <action
+            android:id="@+id/action_homePageFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_homePageFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_homePageFragment_to_inviteFragment"
+            app:destination="@id/inviteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/converterFragment"
+        android:name="com.project.uconverter.ConverterFragment"
+        android:label="fragment_converter"
+        tools:layout="@layout/fragment_converter" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.project.uconverter.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.project.uconverter.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/inviteFragment"
+        android:name="com.project.uconverter.InviteFragment"
+        android:label="fragment_invite"
+        tools:layout="@layout/fragment_invite" />
+</navigation>
