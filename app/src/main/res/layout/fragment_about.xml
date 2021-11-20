@@ -11,8 +11,8 @@
     <!--  Just For Testing, Should be replaced with the actual UI  -->
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Hello from About Page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

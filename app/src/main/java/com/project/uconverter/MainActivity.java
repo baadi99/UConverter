@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String currentView = "homepage"; //To keep track of view while navigating
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,14 +32,23 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        // Handle action bar item clicks here
+        int selectedItemId = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        /*
+           check which item was selected and if the selected item doesn't corresponds
+           to the current view (ex: item: settings, currView: settings), because if it does
+           an exception will be thrown.
+        */
+        if (selectedItemId == R.id.action_settings && !currentView.equals("settings")) {
+            currentView = "settings";
             Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment).navigate(R.id.action_homePageFragment_to_settingsFragment);
+        } else if(selectedItemId == R.id.action_about && !currentView.equals("about")) {
+            currentView = "about";
+            Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment).navigate(R.id.action_homePageFragment_to_aboutFragment);
+        } else if(selectedItemId == R.id.action_share && !currentView.equals("share")) {
+            currentView = "share";
+            Navigation.findNavController(MainActivity.this, R.id.nav_host_fragment).navigate(R.id.action_homePageFragment_to_inviteFragment);
         }
 
         return super.onOptionsItemSelected(item);
