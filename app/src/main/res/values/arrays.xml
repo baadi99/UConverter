@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="units">
+        <item>m</item>
+        <item>cm</item>
+        <item>mm</item>
+        <item>m&lt;sup&gt;2&lt;/sub&gt;</item>
+    </string-array>
+</resources>

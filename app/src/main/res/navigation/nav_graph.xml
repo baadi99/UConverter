@@ -27,7 +27,11 @@
         android:id="@+id/converterFragment"
         android:name="com.project.uconverter.ConverterFragment"
         android:label="fragment_converter"
-        tools:layout="@layout/fragment_converter" />
+        tools:layout="@layout/fragment_converter" >
+        <argument
+            android:name="unit"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.project.uconverter.SettingsFragment"

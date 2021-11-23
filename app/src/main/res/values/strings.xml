@@ -3,4 +3,9 @@
     <string name="appversion">V1.0</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="unit_hint">unit</string>
+    <string name="defualt_tounit">cm</string>
+    <string name="default_result">0</string>
+    <string name="input_hint">Enter value</string>
+    <string name="defualt_fromunit">m</string>
 </resources>
