@@ -5,6 +5,7 @@ import android.graphics.Outline;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.ArrayRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -22,6 +23,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.project.uconverter.units.Length;
+
 import java.lang.reflect.Array;
 
 /**
@@ -34,14 +37,14 @@ public class ConverterFragment extends Fragment {
     //Get UI items
     private TextView resultView;
     private EditText valueView;
-    private AutoCompleteTextView fromUnitView;
-    private AutoCompleteTextView toUnitView;
+    private Spinner fromUnitDropDown;
+    private Spinner toUnitDropDown;
     private ImageButton switchBtn;
 
-    ArrayAdapter<CharSequence> adapter;
+    //Units
+    private final @ArrayRes int units = R.array.units;
 
-    private final int FONT_SIZE = 60;
-
+    ArrayAdapter<CharSequence> dropDownAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -87,7 +90,7 @@ public class ConverterFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        adapter = ArrayAdapter.createFromResource(container.getContext(), R.array.units, android.R.layout.simple_spinner_dropdown_item);
+        dropDownAdapter = ArrayAdapter.createFromResource(container.getContext(), R.array.units, android.R.layout.simple_spinner_dropdown_item);
         return inflater.inflate(R.layout.fragment_converter, container, false);
     }
 
@@ -96,25 +99,43 @@ public class ConverterFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         //Set up from unit spinner
-        fromUnitView = view.findViewById(R.id.from_unit_view);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        fromUnitView.setAdapter(adapter);
+        fromUnitDropDown = view.findViewById(R.id.from_unit_view);
+        dropDownAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fromUnitDropDown.setAdapter(dropDownAdapter);
+        fromUnitDropDown.setSelection(10); //Set default from unit to be meter
         //Set up to unit spinner
-        toUnitView = view.findViewById(R.id.to_unit_view);
-        toUnitView.setAdapter(adapter);
+        toUnitDropDown = view.findViewById(R.id.to_unit_view);
+        toUnitDropDown.setAdapter(dropDownAdapter);
+        toUnitDropDown.setSelection(13); //Set default to unit to be milimeter
         //initialize result
         resultView = view.findViewById(R.id.result);
         valueView = view.findViewById(R.id.value);
 
+        //Argument passed
+        String label = ConverterFragmentArgs.fromBundle(getArguments()).getUnit();
+
+
         //Set an event on the value field
         valueView.setOnKeyListener((View v, int keyCode, KeyEvent event) -> {
 
-            //Check key pressed is in the interval 0 - 9 or it's backspace (<- key) or a dot "."
+            //Check key pressed is in the interval 0 - 9 or it's a backspace (<- key) or a dot "."
             //For decimal values.
             if((keyCode >= 7 && keyCode <= 16) || (keyCode == 67) || (keyCode == 158)) {
-                String val = valueView.getText().toString();
-                if(val.length() > 0) {
-                    resultView.setText(val);
+                String input = valueView.getText().toString();
+                String output;
+                String fromUnit = fromUnitDropDown.getSelectedItem().toString();
+                String toUnit = toUnitDropDown.getSelectedItem().toString();
+
+                if(input.length() > 0) {
+                    double val = Double.parseDouble(input);
+                    double res;
+                    try {
+                        res = Length.convert(val, fromUnit, toUnit);
+                        output = Length.format(res);
+                        resultView.setText(output);
+                    } catch(Exception e) {
+                        resultView.setText(e.getMessage());
+                    }
                 } else {
                     //Reset text view
                     resultView.setText("0");
@@ -132,9 +153,11 @@ public class ConverterFragment extends Fragment {
         //handle the switch btn event
         switchBtn = view.findViewById(R.id.switch_units_btn);
         switchBtn.setOnClickListener((View v) -> {
-            String fromUnit = fromUnitView.getText().toString();
-            fromUnitView.setText(toUnitView.getText().toString());
-            toUnitView.setText(fromUnit);
+            int fromUnit = fromUnitDropDown.getSelectedItemPosition();
+            //Casting from long to int here is safe since we are not dealing with big number
+            fromUnitDropDown.setSelection(toUnitDropDown.getSelectedItemPosition());
+            toUnitDropDown.setSelection(fromUnit);
+            //Update value
         });
 
 

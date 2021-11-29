@@ -78,23 +78,26 @@ public class HomePageFragment extends Fragment {
 
         //set listener on cards
         cards = new ArrayList<>();
-        //Get all the cards and store them in cards var
+        //Get all the cards and store them in cards list
         view.findViewsWithText(cards, "card", View.FIND_VIEWS_WITH_CONTENT_DESCRIPTION);
 
         //Iterate thro the cards and attach an OnClick event on each card
-        for(View card : cards) {
-            card.setOnClickListener((View v) -> {
-                
-                Toast.makeText(requireContext(), "You clicked " + card.getContentDescription().toString().split(" ")[1], Toast.LENGTH_SHORT).show();
-            });
-        }
+//        for(View card : cards) {
+//            card.setOnClickListener((View v) -> {
+//                String label = card.getContentDescription().toString().split(" ")[1];
+//                HomePageFragmentDirections.ActionHomePageFragmentToConverterFragment action = HomePageFragmentDirections.actionHomePageFragmentToConverterFragment(label);
+//                NavHostFragment.findNavController(this).navigate(R.id.converterFragment);
+//                //Toast.makeText(requireContext(), "You clicked " + label, Toast.LENGTH_SHORT).show();
+//            });
+//        }
 
         //set a listener on text
+        String label = cards.get(0).getContentDescription().toString().split(" ")[1];
         cards.get(0).setOnClickListener((View v) -> {
             //Navigate to Converter Page
-            NavHostFragment.findNavController(this).navigate(R.id.converterFragment);
+            HomePageFragmentDirections.ActionHomePageFragmentToConverterFragment action = HomePageFragmentDirections.actionHomePageFragmentToConverterFragment(label);
+            NavHostFragment.findNavController(this).navigate(action);
         });
-
 
     }
 }
