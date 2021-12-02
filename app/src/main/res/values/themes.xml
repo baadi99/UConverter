@@ -6,7 +6,7 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondary_color</item>
         <!-- App bar styles -->
-        <item name="android:background">@color/primary_color</item>
+<!--        <item name="android:background">@color/primary_color</item>-->
         <item name="popupMenuBackground">@color/primary_color</item>
         <item name="android:textColor">@color/secondary_color</item>
         <!-- Status bar color. -->

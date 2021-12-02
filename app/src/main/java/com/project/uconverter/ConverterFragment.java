@@ -1,8 +1,5 @@
 package com.project.uconverter;
 
-import android.graphics.Color;
-import android.graphics.Outline;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.ArrayRes;
@@ -14,9 +11,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewOutlineProvider;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -24,73 +19,84 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.project.uconverter.units.Length;
+import com.project.uconverter.units.Temperature;
 
-import java.lang.reflect.Array;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ConverterFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ConverterFragment extends Fragment {
 
-    //Get UI items
+    @ArrayRes
+    private int units_resource;
+
+    //Unit resources (Defined in res > values > arrays.xml
+    @ArrayRes
+    private final int length_units = R.array.length_units;
+    @ArrayRes
+    private final int area_units = R.array.area_units;
+    @ArrayRes
+    private final int mass_units = R.array.mass_units;
+    @ArrayRes
+    private final int volume_units = R.array.volume_units;
+    @ArrayRes
+    private final int time_units = R.array.time_units;
+    @ArrayRes
+    private final int speed_units = R.array.speed_units;
+    @ArrayRes
+    private final int temperature_units = R.array.temperature_units;
+    @ArrayRes
+    private final int currency_units = R.array.currency_units;
+
+
+    //UI items
     private TextView resultView;
     private EditText valueView;
     private Spinner fromUnitDropDown;
     private Spinner toUnitDropDown;
     private ImageButton switchBtn;
 
-    //Units
-    private final @ArrayRes int units = R.array.units;
+    private ArrayAdapter<CharSequence> dropDownAdapter;
 
-    ArrayAdapter<CharSequence> dropDownAdapter;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public ConverterFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ConverterFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ConverterFragment newInstance(String param1, String param2) {
-        ConverterFragment fragment = new ConverterFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    // Required empty public constructor
+    public ConverterFragment() { }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //Argument passed
+        String label = ConverterFragmentArgs.fromBundle(getArguments()).getLabel();
+        switch (label) {
+            case "length":
+                units_resource = length_units;
+                break;
+            case "mass":
+                units_resource = mass_units;
+                break;
+            case "area":
+                units_resource = area_units;
+                break;
+            case "volume":
+                units_resource = volume_units;
+                break;
+            case "time":
+                units_resource = time_units;
+                break;
+            case "speed":
+                units_resource = speed_units;
+                break;
+            case "temperature":
+                units_resource = temperature_units;
+                break;
+            case "currency":
+                units_resource = currency_units;
+                break;
+        }
+
+        dropDownAdapter = ArrayAdapter.createFromResource(container.getContext(), units_resource, android.R.layout.simple_spinner_dropdown_item);
         // Inflate the layout for this fragment
-        dropDownAdapter = ArrayAdapter.createFromResource(container.getContext(), R.array.units, android.R.layout.simple_spinner_dropdown_item);
         return inflater.inflate(R.layout.fragment_converter, container, false);
     }
 
@@ -102,18 +108,18 @@ public class ConverterFragment extends Fragment {
         fromUnitDropDown = view.findViewById(R.id.from_unit_view);
         dropDownAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fromUnitDropDown.setAdapter(dropDownAdapter);
-        fromUnitDropDown.setSelection(10); //Set default from unit to be meter
+        int nmUnits = fromUnitDropDown.getCount();
+        fromUnitDropDown.setSelection(nmUnits/2); //Set default from unit to be meter
+
         //Set up to unit spinner
         toUnitDropDown = view.findViewById(R.id.to_unit_view);
         toUnitDropDown.setAdapter(dropDownAdapter);
-        toUnitDropDown.setSelection(13); //Set default to unit to be milimeter
+        //toUnitDropDown.setSelection((nmUnits/2) + 3); //Set default to unit to be milimeter
+
+
         //initialize result
         resultView = view.findViewById(R.id.result);
         valueView = view.findViewById(R.id.value);
-
-        //Argument passed
-        String label = ConverterFragmentArgs.fromBundle(getArguments()).getUnit();
-
 
         //Set an event on the value field
         valueView.setOnKeyListener((View v, int keyCode, KeyEvent event) -> {
@@ -130,14 +136,14 @@ public class ConverterFragment extends Fragment {
                     double val = Double.parseDouble(input);
                     double res;
                     try {
-                        res = Length.convert(val, fromUnit, toUnit);
-                        output = Length.format(res);
-                        resultView.setText(output);
+                        res = Temperature.convert(val, fromUnitDropDown.getSelectedItemPosition(), toUnitDropDown.getSelectedItemPosition());
+                        //output = Length.format(res);
+                        resultView.setText("" + res);
                     } catch(Exception e) {
                         resultView.setText(e.getMessage());
                     }
                 } else {
-                    //Reset text view
+                    //Reset text view when input is cleared
                     resultView.setText("0");
                 }
                 return false;
@@ -154,7 +160,6 @@ public class ConverterFragment extends Fragment {
         switchBtn = view.findViewById(R.id.switch_units_btn);
         switchBtn.setOnClickListener((View v) -> {
             int fromUnit = fromUnitDropDown.getSelectedItemPosition();
-            //Casting from long to int here is safe since we are not dealing with big number
             fromUnitDropDown.setSelection(toUnitDropDown.getSelectedItemPosition());
             toUnitDropDown.setSelection(fromUnit);
             //Update value

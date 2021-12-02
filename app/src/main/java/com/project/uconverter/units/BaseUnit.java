@@ -11,6 +11,8 @@ public class BaseUnit {
             "dm", "cm", "mm", "", "", "μm", "", "", "nm", "", "", "pm", "", "", "fm", "", "", "am", "", "", "zm", "",
             "", "ym");
 
+
+    //Prevent instantiation
     protected BaseUnit() {}
 
     /*

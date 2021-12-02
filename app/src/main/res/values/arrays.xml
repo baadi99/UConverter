@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="units">
+    <string-array name="length_units">
         <item>Ym</item>
         <item>Zm</item>
         <item>Em</item>
@@ -23,4 +23,104 @@
         <item>zm</item>
         <item>ym</item>
     </string-array>
+
+    <string-array name="area_units">
+        <item>Ym<sup><small>2</small></sup></item>
+        <item>Zm<sup><small>2</small></sup></item>
+        <item>Em<sup><small>2</small></sup></item>
+        <item>Pm<sup><small>2</small></sup></item>
+        <item>Tm<sup><small>2</small></sup></item>
+        <item>Gm<sup><small>2</small></sup></item>
+        <item>Mm<sup><small>2</small></sup></item>
+        <item>km<sup><small>2</small></sup></item>
+        <item>hm<sup><small>2</small></sup></item>
+        <item>dam<sup><small>2</small></sup></item>
+        <item>m<sup><small>2</small></sup></item>
+        <item>dm<sup><small>2</small></sup></item>
+        <item>cm<sup><small>2</small></sup></item>
+        <item>mm<sup><small>2</small></sup></item>
+        <item>μm<sup><small>2</small></sup></item>
+        <item>nm<sup><small>2</small></sup></item>
+        <item>pm<sup><small>2</small></sup></item>
+        <item>fm<sup><small>2</small></sup></item>
+        <item>am<sup><small>2</small></sup></item>
+        <item>zm<sup><small>2</small></sup></item>
+        <item>ym<sup><small>2</small></sup></item>
+    </string-array>
+
+    <string-array name="mass_units">
+        <item>Yg</item>
+        <item>Zg</item>
+        <item>Eg</item>
+        <item>Pg</item>
+        <item>Gt</item>
+        <item>Mt</item>
+        <item>tonne</item>
+        <item>kg</item>
+        <item>hg</item>
+        <item>dag</item>
+        <item>g</item>
+        <item>dg</item>
+        <item>cg</item>
+        <item>mg</item>
+        <item>μg</item>
+        <item>ng</item>
+        <item>pg</item>
+        <item>fg</item>
+        <item>ag</item>
+        <item>zg</item>
+        <item>yg</item>
+    </string-array>
+
+    <string-array name="volume_units">
+        <item>Ym<sup><small>3</small></sup></item>
+        <item>Zm<sup><small>3</small></sup></item>
+        <item>Em<sup><small>3</small></sup></item>
+        <item>Pm<sup><small>3</small></sup></item>
+        <item>Tm<sup><small>3</small></sup></item>
+        <item>Gm<sup><small>3</small></sup></item>
+        <item>Mm<sup><small>3</small></sup></item>
+        <item>km<sup><small>3</small></sup></item>
+        <item>hm<sup><small>3</small></sup></item>
+        <item>dam<sup><small>3</small></sup></item>
+        <item>m<sup><small>3</small></sup></item>
+        <item>dm<sup><small>3</small></sup></item>
+        <item>cm<sup><small>3</small></sup></item>
+        <item>mm<sup><small>3</small></sup></item>
+        <item>μm<sup><small>3</small></sup></item>
+        <item>nm<sup><small>3</small></sup></item>
+        <item>pm<sup><small>3</small></sup></item>
+        <item>fm<sup><small>3</small></sup></item>
+        <item>am<sup><small>3</small></sup></item>
+        <item>zm<sup><small>3</small></sup></item>
+        <item>ym<sup><small>3</small></sup></item>
+    </string-array>
+
+    <string-array name="time_units">
+        <item>Day</item>
+        <item>Hour</item>
+        <item>Minute</item>
+        <item>Second</item>
+        <item>ms</item>
+        <item>μs</item>
+        <item>ns</item>
+    </string-array>
+
+    <string-array name="speed_units">
+        <item>km/h</item>
+        <item>m/s</item>
+        <item>mph</item>
+    </string-array>
+
+    <string-array name="temperature_units">
+        <item><sup><small>o</small></sup>C</item>
+        <item><sup><small>o</small></sup>F</item>
+        <item><sup><small>o</small></sup>K</item>
+    </string-array>
+
+    <string-array name="currency_units">
+        <item>$</item>
+        <item>MAD</item>
+    </string-array>
+
 </resources>

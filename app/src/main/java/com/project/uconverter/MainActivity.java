@@ -57,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
         } else if(selectedItemId == R.id.action_share && !currentView.equals("share")) {
             currentView = "share";
             navController.navigate(R.id.inviteFragment);
+        } else if(selectedItemId == R.id.action_feedback && !currentView.equals("feedback")) {
+            currentView = "feedback";
+            navController.navigate(R.id.feedbackFragment);
         } else {
             Toast.makeText(this, "You are already in " + currentView, Toast.LENGTH_SHORT).show();
         }
