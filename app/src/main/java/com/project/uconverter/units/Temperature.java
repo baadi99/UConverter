@@ -1,20 +1,20 @@
 package com.project.uconverter.units;
 
-<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.List;
 
-public final class Temperature implements Converter{
+public final class Temperature implements Converter {
 
-    private static final List<String> units =  Arrays.asList("Celsius", "Fahrenheit", "Kelvin");
+    private static final List<String> units = Arrays.asList("Celsius", "Fahrenheit", "Kelvin");
 
     private static Temperature instance = null;
 
-    //Prevent instantiation
-    private Temperature() { }
+    // Prevent instantiation
+    private Temperature() {
+    }
 
     public static Temperature getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new Temperature();
         }
         return instance;
@@ -22,45 +22,35 @@ public final class Temperature implements Converter{
 
     public double convert(double value, String fromUnit, String toUnit) throws Exception {
 
-        //we get the unit in the form Celsius
-        int fromUnitIndex = units.indexOf(fromUnit.split(" ")[0]);
-        int toUnitIndex = units.indexOf(toUnit.split(" ")[0]);
+        // we get the unit in the form Celsius
+        int fromUnitIndex = units.indexOf(fromUnit);
+        int toUnitIndex = units.indexOf(toUnit);
 
-        if(fromUnitIndex == -1 || toUnitIndex == -1) {
-            throw new Exception("Unit was not found you chose" + fromUnit + " at index " + fromUnitIndex);
+        if (fromUnitIndex == -1 || toUnitIndex == -1) {
+            throw new Exception("Unit was not found");
         }
-=======
-public final class Temperature {
-
-    private final static String LABEL = "temperature";
-
-    //Prevent instantiation
-    private Temperature() {}
-
-    public static double convert(double value, int fromUnitIndex, int toUnitIndex) {
->>>>>>> 188f275d1b8938ce0cada910e3d2a3303cc28d60
 
         final double LOSCHMIDT_CONSTANT = 273.15;
-        double result = value; //To avoid the else case when fromUnit == toUnit
+        double result = value; // To avoid the else case when fromUnit == toUnit
 
         // 0 => Celsius, 1 =>Fahrenheit, 2 => Kelvin
-        if(fromUnitIndex == 0) {
-            if(toUnitIndex == 1) {
-                result = (value * 9.0/5.0) + 32;
-            } else if(toUnitIndex == 2) {
+        if (fromUnitIndex == 0) {
+            if (toUnitIndex == 1) {
+                result = (value * 9.0 / 5.0) + 32;
+            } else if (toUnitIndex == 2) {
                 result = value + LOSCHMIDT_CONSTANT;
             }
-        } else if(fromUnitIndex == 1) {
-            if(toUnitIndex == 0) {
-                result = (value - 32) * 5.0/9.0;
-            } else if(toUnitIndex == 2) {
-                result = ((value - 32) * 5.0/9.0) + LOSCHMIDT_CONSTANT;
+        } else if (fromUnitIndex == 1) {
+            if (toUnitIndex == 0) {
+                result = (value - 32) * 5.0 / 9.0;
+            } else if (toUnitIndex == 2) {
+                result = ((value - 32) * 5.0 / 9.0) + LOSCHMIDT_CONSTANT;
             }
-        } else if(fromUnitIndex == 2) {
+        } else if (fromUnitIndex == 2) {
             if (toUnitIndex == 0) {
                 result = (32 * value) - LOSCHMIDT_CONSTANT;
             } else if (toUnitIndex == 1) {
-                result = (( value - LOSCHMIDT_CONSTANT) * 9.0 / 5.0) + 32;
+                result = ((value - LOSCHMIDT_CONSTANT) * 9.0 / 5.0) + 32;
             }
         }
 
