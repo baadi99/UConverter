@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingVertical="60dp"
+    android:background="@color/primary_color"
     app:columnCount="2"
     app:rowCount="4"
     tools:context=".HomePageFragment">
@@ -16,19 +17,20 @@
         android:contentDescription="card length"
         app:cardCornerRadius="4dp"
         app:cardElevation="5dp"
-        app:layout_columnWeight="1"
-        app:layout_gravity="fill"
-        app:layout_rowWeight="1">
+        android:layout_width="160dp"
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/primary_color_accent">
 
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:background="@color/primary_color_accent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -41,6 +43,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="10dp"
                 android:text="Length"
+                android:background="@color/primary_color_accent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,19 +57,20 @@
         android:contentDescription="card area"
         app:cardCornerRadius="4dp"
         app:cardElevation="5dp"
-        app:layout_columnWeight="1"
-        app:layout_gravity="fill"
-        app:layout_rowWeight="1">
+        android:layout_width="160dp"
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/primary_color_accent">
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:background="@color/primary_color_accent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -79,6 +83,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="10dp"
                 android:text="Area"
+                android:background="@color/primary_color_accent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -93,19 +98,20 @@
         android:contentDescription="card volume"
         app:cardCornerRadius="4dp"
         app:cardElevation="5dp"
-        app:layout_columnWeight="1"
-        app:layout_gravity="fill"
-        app:layout_rowWeight="1">
+        android:layout_width="160dp"
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/primary_color_accent">
 
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:background="@color/primary_color_accent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -118,6 +124,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="10dp"
                 android:text="Volume"
+                android:background="@color/primary_color_accent"
+                android:textColor="@color/secondary_color"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -132,19 +140,20 @@
         android:contentDescription="card mass"
         app:cardCornerRadius="4dp"
         app:cardElevation="5dp"
-        app:layout_columnWeight="1"
-        app:layout_gravity="fill"
-        app:layout_rowWeight="1">
+        android:layout_width="160dp"
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/primary_color_accent">
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:background="@color/primary_color_accent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -157,6 +166,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="10dp"
                 android:text="Mass"
+                android:background="@color/primary_color_accent"
+                android:textColor="@color/secondary_color"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -171,19 +182,20 @@
         android:contentDescription="card time"
         app:cardCornerRadius="4dp"
         app:cardElevation="5dp"
-        app:layout_columnWeight="1"
-        app:layout_gravity="fill"
-        app:layout_rowWeight="1">
+        android:layout_width="160dp"
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/primary_color_accent">
 
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:background="@color/primary_color_accent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -196,6 +208,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="10dp"
                 android:text="Time"
+                android:background="@color/primary_color_accent"
+                android:textColor="@color/secondary_color"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -205,63 +219,25 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view6"
-        android:layout_margin="20dp"
-        android:contentDescription="card speed"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="5dp"
-        app:layout_columnWeight="1"
-        app:layout_gravity="fill"
-        app:layout_rowWeight="1">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_speed_icon" />
-
-            <TextView
-                android:id="@+id/card6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="10dp"
-                android:text="Speed"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!--  Fourth Row  -->
-    <androidx.cardview.widget.CardView
         android:id="@+id/card_view7"
         android:layout_margin="20dp"
         android:contentDescription="card temperature"
         app:cardCornerRadius="4dp"
         app:cardElevation="5dp"
-        app:layout_columnWeight="1"
-        app:layout_gravity="fill"
-        app:layout_rowWeight="1">
+        android:layout_width="160dp"
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+                    android:background="@color/primary_color_accent">
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
+                android:background="@color/primary_color_accent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -274,50 +250,14 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="10dp"
                 android:text="Temperature"
+                android:background="@color/primary_color_accent"
+                android:textColor="@color/secondary_color"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView7" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view8"
-        android:layout_margin="20dp"
-        android:contentDescription="card currency"
-        app:cardCornerRadius="4dp"
-        app:cardElevation="5dp"
-        app:layout_columnWeight="1"
-        app:layout_gravity="fill"
-        app:layout_rowWeight="1">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_currency_icon" />
-
-            <TextView
-                android:id="@+id/card8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="10dp"
-                android:text="Currency"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView8" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.gridlayout.widget.GridLayout>

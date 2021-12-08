@@ -1,13 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-<!--    <style name="Theme.UConverter" parent="Theme.MaterialComponents.DayNight.NoActionBar">-->
-<!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
-<!--        <item name="colorPrimary">@color/secondary_color</item>-->
-<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
-<!--        <item name="colorSecondary">@color/primary_color</item>-->
+    <style name="Theme.UConverter" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_color</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary_color</item>
+        <!-- App bar styles -->
+        <item name="popupMenuBackground">@color/primary_color</item>
+        <!-- text color in the entire app -->
+        <item name="android:textColor">@color/secondary_color</item>
+    </style>
 
-<!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
-<!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
-<!--        &lt;!&ndash; Customize your theme here. &ndash;&gt;-->
-<!--    </style>-->
 </resources>

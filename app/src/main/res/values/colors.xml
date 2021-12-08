@@ -2,7 +2,8 @@
 <resources>
     <!-- Color Palette -->
     <color name="primary_color">#232435</color>
+    <color name="primary_color_accent">#35364A</color>
     <color name="secondary_color">#FFFFFF</color>
     <color name="accent_color">#FF4762</color>
-    <color name="hint_color">#E6E7E8</color>
+    <color name="hint_color">#6D6E71</color>
 </resources>

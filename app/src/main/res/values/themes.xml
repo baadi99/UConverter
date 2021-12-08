@@ -1,30 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.UConverter" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <!-- Base application theme for light theme -->
+    <style name="Theme.UConverter" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_color</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondary_color</item>
         <!-- App bar styles -->
-        <item name="android:background">@color/primary_color</item>
         <item name="popupMenuBackground">@color/primary_color</item>
+        <!-- text color in the entire app -->
         <item name="android:textColor">@color/secondary_color</item>
-        <!-- Status bar color. -->
-<!--        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>-->
-        <!-- Customize your theme here. -->
+        <item name="android:background">@color/primary_color</item>
     </style>
 
-
-<!--    <style name="Theme.UConverter.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">-->
-<!--        <item name="android:itemBackground">@color/primary_color</item>-->
-<!--        <item name="android:textColor">@color/secondary_color</item>-->
-<!--        <item name="colorPrimaryDark">@color/primary_color</item>-->
-<!--        <item name="android:colorBackground">@color/primary_color</item>-->
-<!--    </style>-->
-<!--    <style name="Theme.UConverter.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">-->
-<!--        <item name="android:itemBackground">@color/primary_color</item>-->
-<!--        <item name="android:textColor">@color/secondary_color</item>-->
-<!--        <item name="colorPrimaryDark">@color/primary_color</item>-->
-<!--        <item name="android:colorBackground">@color/primary_color</item>-->
-<!--    </style>-->
 </resources>

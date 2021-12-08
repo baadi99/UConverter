@@ -3,17 +3,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_color"
     tools:context=".AboutFragment">
 
-    <!--  Just For Testing, Should be replaced with the actual UI  -->
     <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:textColor="@color/secondary_color"
+        android:autoSizeMinTextSize="25sp"
+        android:autoSizeMaxTextSize="30sp"
+        android:autoSizeTextType="uniform"
+        android:text="About us"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/dummy_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/dummy_text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello from About Page"
+        android:textColor="@color/secondary_color"
+        android:autoSizeTextType="uniform"
+        android:justificationMode="inter_word"
+        android:lineHeight="30dp"
+        android:lineSpacingExtra="6dp"
+        android:paddingHorizontal="30dp"
+        android:text="@string/about_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

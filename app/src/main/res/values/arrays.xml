@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="units">
-        <item>Ym</item>
-        <item>Zm</item>
-        <item>Em</item>
-        <item>Pm</item>
-        <item>Tm</item>
-        <item>Gm</item>
+    <string-array name="length_units">
         <item>Mm</item>
         <item>km</item>
         <item>hm</item>
@@ -17,10 +11,71 @@
         <item>mm</item>
         <item>μm</item>
         <item>nm</item>
-        <item>pm</item>
-        <item>fm</item>
-        <item>am</item>
-        <item>zm</item>
-        <item>ym</item>
     </string-array>
+
+    <string-array name="area_units">
+        <item>Mm<sup><small>2</small></sup></item>
+        <item>km<sup><small>2</small></sup></item>
+        <item>hm<sup><small>2</small></sup></item>
+        <item>dam<sup><small>2</small></sup></item>
+        <item>m<sup><small>2</small></sup></item>
+        <item>dm<sup><small>2</small></sup></item>
+        <item>cm<sup><small>2</small></sup></item>
+        <item>mm<sup><small>2</small></sup></item>
+        <item>μm<sup><small>2</small></sup></item>
+        <item>nm<sup><small>2</small></sup></item>
+    </string-array>
+
+    <string-array name="mass_units">
+        <item>tonne</item>
+        <item>kg</item>
+        <item>hg</item>
+        <item>dag</item>
+        <item>g</item>
+        <item>dg</item>
+        <item>cg</item>
+        <item>mg</item>
+        <item>μg</item>
+    </string-array>
+
+    <string-array name="volume_units">
+        <item>Mm<sup><small>3</small></sup></item>
+        <item>km<sup><small>3</small></sup></item>
+        <item>hm<sup><small>3</small></sup></item>
+        <item>dam<sup><small>3</small></sup></item>
+        <item>m<sup><small>3</small></sup></item>
+        <item>dm<sup><small>3</small></sup></item>
+        <item>cm<sup><small>3</small></sup></item>
+        <item>mm<sup><small>3</small></sup></item>
+        <item>μm<sup><small>3</small></sup></item>
+        <item>nm<sup><small>3</small></sup></item>
+    </string-array>
+
+    <string-array name="time_units">
+        <item>Day</item>
+        <item>Hour</item>
+        <item>Minute</item>
+        <item>Second</item>
+        <item>ms</item>
+        <item>μs</item>
+        <item>ns</item>
+    </string-array>
+
+    <string-array name="speed_units">
+        <item>km/h</item>
+        <item>m/s</item>
+        <item>mph</item>
+    </string-array>
+
+    <string-array name="temperature_units">
+        <item>Celsius</item>
+        <item>Fahrenheit</item>
+        <item>Kelvin</item>
+    </string-array>
+
+    <string-array name="currency_units">
+        <item>$</item>
+        <item>MAD</item>
+    </string-array>
+
 </resources>

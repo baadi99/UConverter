@@ -20,7 +20,7 @@ public class SplashActivity extends AppCompatActivity {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             //Start the new activity(i.e. Main activity)
             startActivity(intent);
-            //Finish the current activity(i.e. Splash activity
+            //Finish the current activity(i.e. Splash activity)
             finish();
         }, 2000);
     }

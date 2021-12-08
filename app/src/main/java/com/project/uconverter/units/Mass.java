@@ -4,21 +4,19 @@ package com.project.uconverter.units;
 import java.util.Arrays;
 import java.util.List;
 
-public final class Length implements Converter {
-    //Empty strings are added between the elements where the step is 3
-    // instead of 1 so we don't have to deal with that case.
-    private static final List<String> units = Arrays.asList("Mm", "", "", "km", "hm", "dam", "m",
-                    "dm", "cm", "mm", "", "", "μm", "", "", "nm");;
+public final class Mass implements Converter {
 
-    private static Length instance = null;
+    private static final List<String> units = Arrays.asList("tonne", "", "", "kg", "hg", "dag", "g", "dg", "cg", "mg", "", "", "μg");
+
+    private static Mass instance = null;
 
     //Prevent instantiation
-    private Length() {}
+    private Mass() { }
 
-    public static Length getInstance() {
+    public static Mass getInstance() {
 
         if (instance == null) {
-            instance = new Length();
+            instance = new Mass();
         }
 
         return instance;
@@ -40,4 +38,6 @@ public final class Length implements Converter {
 
         return value * Math.pow(10, expo);
     }
+
 }
+

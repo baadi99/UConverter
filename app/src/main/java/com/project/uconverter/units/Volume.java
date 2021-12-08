@@ -4,21 +4,24 @@ package com.project.uconverter.units;
 import java.util.Arrays;
 import java.util.List;
 
-public final class Length implements Converter {
-    //Empty strings are added between the elements where the step is 3
-    // instead of 1 so we don't have to deal with that case.
+public final class Volume implements Converter {
+    
+    //Empty strings are added between the elements where the step is 6
+    // instead of 4 so we don't have to deal with that case.
     private static final List<String> units = Arrays.asList("Mm", "", "", "km", "hm", "dam", "m",
-                    "dm", "cm", "mm", "", "", "μm", "", "", "nm");;
-
-    private static Length instance = null;
+            "dm", "cm", "mm", "", "", "μm", "", "", "nm");
+    //the exponent is not included in the units (i.e. m^3) to simplify searching
+    
+    
+    private static Volume instance = null;
 
     //Prevent instantiation
-    private Length() {}
+    private Volume() { }
 
-    public static Length getInstance() {
+    public static Volume getInstance() {
 
         if (instance == null) {
-            instance = new Length();
+            instance = new Volume();
         }
 
         return instance;
@@ -29,8 +32,8 @@ public final class Length implements Converter {
      */
     public double convert(double value, String fromUnit, String toUnit) throws Exception {
 
-        int fromIndex = units.indexOf(fromUnit);
-        int toIndex = units.indexOf(toUnit);
+        int fromIndex = units.indexOf(fromUnit.split("[^a-zA-Z]")[0]);
+        int toIndex = units.indexOf(toUnit.split("[^a-zA-Z]")[0]);
 
         if (fromIndex == -1 || toIndex == -1) {
             throw new Exception("Unit was not found!");
@@ -38,6 +41,9 @@ public final class Length implements Converter {
 
         int expo = toIndex - fromIndex; // calculates the exponent where val fromunit = val * 10 ^ +/- expo toUnit
 
-        return value * Math.pow(10, expo);
+        return value * Math.pow(10, expo * 3);
     }
+
 }
+
+

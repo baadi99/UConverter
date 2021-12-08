@@ -1,68 +1,29 @@
 package com.project.uconverter;
 
-import android.content.Context;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 
 import java.util.ArrayList;
-import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link HomePageFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class HomePageFragment extends Fragment {
 
     private ArrayList<View> cards;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     // Required empty public constructor
     public HomePageFragment() { }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment HomePageFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static HomePageFragment newInstance(String param1, String param2) {
-        HomePageFragment fragment = new HomePageFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -81,23 +42,17 @@ public class HomePageFragment extends Fragment {
         //Get all the cards and store them in cards list
         view.findViewsWithText(cards, "card", View.FIND_VIEWS_WITH_CONTENT_DESCRIPTION);
 
-        //Iterate thro the cards and attach an OnClick event on each card
-//        for(View card : cards) {
-//            card.setOnClickListener((View v) -> {
-//                String label = card.getContentDescription().toString().split(" ")[1];
-//                HomePageFragmentDirections.ActionHomePageFragmentToConverterFragment action = HomePageFragmentDirections.actionHomePageFragmentToConverterFragment(label);
-//                NavHostFragment.findNavController(this).navigate(R.id.converterFragment);
-//                //Toast.makeText(requireContext(), "You clicked " + label, Toast.LENGTH_SHORT).show();
-//            });
-//        }
-
-        //set a listener on text
-        String label = cards.get(0).getContentDescription().toString().split(" ")[1];
-        cards.get(0).setOnClickListener((View v) -> {
-            //Navigate to Converter Page
-            HomePageFragmentDirections.ActionHomePageFragmentToConverterFragment action = HomePageFragmentDirections.actionHomePageFragmentToConverterFragment(label);
-            NavHostFragment.findNavController(this).navigate(action);
-        });
+        //Iterate through the cards and attach an OnClick event on each card
+        NavController navController = NavHostFragment.findNavController(HomePageFragment.this);
+        for(View card : cards) {
+            card.setOnClickListener((View v) -> {
+                //Passing the label to converter fragment so the corresponding units will be used in spinner
+                // and the corresponding algorithm will be used
+                String label = card.getContentDescription().toString().split(" ")[1];
+                HomePageFragmentDirections.ActionHomePageFragmentToConverterFragment action = HomePageFragmentDirections.actionHomePageFragmentToConverterFragment(label);
+                navController.navigate(action);
+            });
+        }
 
     }
 }

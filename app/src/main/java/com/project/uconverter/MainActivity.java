@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String currentView = "homepage"; //To keep track of view while navigating
     private NavController navController;
 
     @Override
@@ -41,24 +40,13 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here
         int selectedItemId = item.getItemId();
 
-        //boolean i = navController.getCurrentDestination() != navController.getGraph().findNode(R.id.aboutFragment);
-
-        /*
-           check which item was selected and if the selected item doesn't corresponds
-           to the current view (ex: item: settings, currView: settings), because if it does
-           will navigate to the same view adding it to the backstack
-        */
-        if (selectedItemId == R.id.action_settings && !currentView.equals("settings")) {
-            currentView = "settings";
-            navController.navigate(R.id.settingsFragment);
-        } else if(selectedItemId == R.id.action_about && !currentView.equals("about")) {
-            currentView = "about";
+        //Navigate to the corresponding view
+         if(selectedItemId == R.id.action_about) {
             navController.navigate(R.id.aboutFragment);
-        } else if(selectedItemId == R.id.action_share && !currentView.equals("share")) {
-            currentView = "share";
+        } else if(selectedItemId == R.id.action_share) {
             navController.navigate(R.id.inviteFragment);
-        } else {
-            Toast.makeText(this, "You are already in " + currentView, Toast.LENGTH_SHORT).show();
+        } else if(selectedItemId == R.id.action_feedback) {
+            navController.navigate(R.id.feedbackFragment);
         }
 
         return super.onOptionsItemSelected(item);

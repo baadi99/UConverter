@@ -1,11 +1,10 @@
 <resources>
     <string name="app_name">UConverter</string>
     <string name="appversion">V1.0</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="unit_hint">unit</string>
-    <string name="default_tounit">cm</string>
     <string name="default_result">0</string>
     <string name="input_hint">0</string>
-    <string name="default_fromunit">m</string>
+    <string name="about_text">Lorem ipsum dolor sit amet,consectetur adipiscing elit. Elit risus nulla sit dictumst sollicitudin. Feugiat vitae donec lorem tellus nec aliquet egestas aliquam cursus. Ultrices sapien lobortis sit adipiscing. Amet proin id tincidunt amet. Nam magna bibendum eu diam. Feugiat et risus odio scelerisque nisl tristique. Metus, sodales parturient nec, mauris. Lacus fringilla diam accumsan.</string>
+    <string name="app_sharing_link">https://googleplay.com/hkj24hl23jld</string>
+    <string name="copy_link">COPY LINK</string>
+    <string name="copied">COPIED!</string>
 </resources>

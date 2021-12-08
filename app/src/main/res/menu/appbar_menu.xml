@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.learning.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="Settings"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_share"
         android:orderInCategory="100"
         android:title="Share"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_feedback"
+        android:orderInCategory="100"
+        android:title="Feedback"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_about"

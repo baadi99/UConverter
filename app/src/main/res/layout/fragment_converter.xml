@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/primary_color"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -35,8 +36,10 @@
         android:maxEms="9"
         android:hint="@string/input_hint"
         android:inputType="numberDecimal"
-        android:paddingStart="10dp"
+        android:background="@drawable/rounded_corners_rect"
+        android:padding="10dp"
         android:textColorHint="@color/hint_color"
+        android:textColor="@color/primary_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
+            app:layout_constraintWidth_max="120dp"
             android:spinnerMode="dialog"
             android:paddingEnd="0dp"
             style="@style/Widget.AppCompat.Spinner.Underlined"
@@ -75,13 +79,15 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_switch_btn" />
+            app:srcCompat="@drawable/ic_switch_btn"
+            />
 
 
         <Spinner
             android:id="@+id/to_unit_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintWidth_max="120dp"
             android:layout_marginBottom="8dp"
             android:spinnerMode="dialog"
             android:paddingEnd="0dp"
