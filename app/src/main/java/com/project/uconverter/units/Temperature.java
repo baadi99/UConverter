@@ -1,5 +1,6 @@
 package com.project.uconverter.units;
 
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,6 +29,16 @@ public final class Temperature implements Converter{
         if(fromUnitIndex == -1 || toUnitIndex == -1) {
             throw new Exception("Unit was not found you chose" + fromUnit + " at index " + fromUnitIndex);
         }
+=======
+public final class Temperature {
+
+    private final static String LABEL = "temperature";
+
+    //Prevent instantiation
+    private Temperature() {}
+
+    public static double convert(double value, int fromUnitIndex, int toUnitIndex) {
+>>>>>>> 188f275d1b8938ce0cada910e3d2a3303cc28d60
 
         final double LOSCHMIDT_CONSTANT = 273.15;
         double result = value; //To avoid the else case when fromUnit == toUnit

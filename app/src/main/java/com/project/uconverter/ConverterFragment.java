@@ -28,7 +28,6 @@ import com.project.uconverter.units.Time;
 import com.project.uconverter.units.Utils;
 import com.project.uconverter.units.Volume;
 
-
 public class ConverterFragment extends Fragment {
 
     // UI items
@@ -40,13 +39,14 @@ public class ConverterFragment extends Fragment {
     // Spinner Adapter
     private ArrayAdapter<CharSequence> dropDownAdapter;
 
-
     // A variable to store the converter instance of one of the implementations
-    // of the Converter interface and use polymorphism to pass the appropriate implementation
+    // of the Converter interface and use polymorphism to call the appropriate
+    // implementation
     private Converter converter;
 
     // Required empty public constructor
-    public ConverterFragment() { }
+    public ConverterFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,14 +55,14 @@ public class ConverterFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        //label is passed from the home page fragments and indicates the label of
-        //the conversion that was chosen (i.e. Length, Area, ...) and is used to
-        //initialize spinners with the appropriate data and to use the appropriate
-        //conversion algorithm
+            Bundle savedInstanceState) {
+        // label is passed from the home page fragments and indicates the label of
+        // the conversion that was chosen (i.e. Length, Area, ...) and is used to
+        // initialize spinners with the appropriate data and to use the appropriate
+        // conversion algorithm
         String label = ConverterFragmentArgs.fromBundle(getArguments()).getLabel();
 
-        //a variable to store the array resource (Defined in res > values > arrays.xml)
+        // a variable to store the array resource (Defined in res > values > arrays.xml)
         // that will be used to initialize spinner
         @ArrayRes
         int units_resource;
@@ -96,7 +96,8 @@ public class ConverterFragment extends Fragment {
                 units_resource = R.array.length_units;
         }
 
-        dropDownAdapter = ArrayAdapter.createFromResource(container.getContext(), units_resource, android.R.layout.simple_spinner_dropdown_item);
+        dropDownAdapter = ArrayAdapter.createFromResource(container.getContext(), units_resource,
+                android.R.layout.simple_spinner_dropdown_item);
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_converter, container, false);
     }
@@ -110,7 +111,7 @@ public class ConverterFragment extends Fragment {
         dropDownAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         fromUnitDropDown.setAdapter(dropDownAdapter);
         int nmUnits = fromUnitDropDown.getCount();
-        fromUnitDropDown.setSelection(nmUnits/2); //Set default from unit to be meter
+        fromUnitDropDown.setSelection(nmUnits / 2); // Set default from unit to be meter
 
         // Set up to unit spinner
         toUnitDropDown = view.findViewById(R.id.to_unit_view);
@@ -120,23 +121,24 @@ public class ConverterFragment extends Fragment {
         resultView = view.findViewById(R.id.result);
         valueView = view.findViewById(R.id.value);
 
-        //Set an event on the value field
+        // Set an event on the value field
         valueView.setOnKeyListener((View v, int keyCode, KeyEvent event) -> {
 
-            //Check key pressed is in the interval 0 - 9 or it's a backspace (<- key) or a dot "."
-            //For decimal values.
-            if((keyCode >= 7 && keyCode <= 16) || (keyCode == 67) || (keyCode == 158)) {
+            // Check key pressed is in the interval 0 - 9 or it's a backspace (<- key) or a
+            // dot "."
+            // For decimal values.
+            if ((keyCode >= 7 && keyCode <= 16) || (keyCode == 67) || (keyCode == 158)) {
                 String input = valueView.getText().toString();
 
                 if (input.length() == 0) {
-                    //Reset text view when input is cleared
+                    // Reset text view when input is cleared
                     resultView.setText("0");
                 } else {
                     calculateResult();
                 }
                 return false;
-                //when the back key is pressed remove focus on value field
-                //this unblocks going back action
+                // when the back key is pressed remove focus on value field
+                // this unblocks going back action
             } else if (keyCode == 4) {
                 resultView.setFocusable(false);
                 return false;
@@ -144,41 +146,45 @@ public class ConverterFragment extends Fragment {
             return true;
         });
 
-        //handle the switch button event
+        // handle the switch button event
         view.findViewById(R.id.switch_units_btn).setOnClickListener((View v) -> {
             int fromUnit = fromUnitDropDown.getSelectedItemPosition();
             fromUnitDropDown.setSelection(toUnitDropDown.getSelectedItemPosition());
             toUnitDropDown.setSelection(fromUnit);
-            //Update value
+            // Update value
             calculateResult();
         });
 
-        //Update result when a new from unit is selected
+        // Update result when a new from unit is selected
         fromUnitDropDown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 calculateResult();
             }
+
             @Override
-            public void onNothingSelected(AdapterView<?> parent) { }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
-        //Update result when a new to unit is selected
+        // Update result when a new to unit is selected
         toUnitDropDown.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 calculateResult();
             }
+
             @Override
-            public void onNothingSelected(AdapterView<?> parent) { }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
     }
 
     /*
-    * A helper method that is responsible for calling the appropriate conversion
-    * algorithm and formatting the resulting value
-    */
+     * A helper method that is responsible for calling the appropriate conversion
+     * algorithm and formatting the resulting value
+     */
     private void calculateResult() {
         String input = valueView.getText().toString();
         if (input.length() > 0) {
