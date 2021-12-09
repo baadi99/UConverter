@@ -62,7 +62,7 @@ public class FeedbackFragment extends Fragment {
                 if (message.isEmpty()) {
                     messageView.setError("Message can't be empty!");
                 } else {
-
+                    // To-do: refactor to use gmail api instead of gmail app!!
                     Intent sendEmailIntent = new Intent(Intent.ACTION_SEND);
                     sendEmailIntent.setType("message/rfc822")
                             .setPackage("com.google.android.gm")

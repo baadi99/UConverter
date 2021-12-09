@@ -3,11 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/primary_color"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="40dp"
+    android:background="?attr/colorPrimary"
     tools:context=".ConverterFragment">
 
     <TextView
@@ -22,7 +22,6 @@
         android:autoSizeTextType="uniform"
         android:text="@string/default_result"
         android:textAlignment="center"
-        android:textColor="@color/secondary_color"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +38,7 @@
         android:background="@drawable/rounded_corners_rect"
         android:padding="10dp"
         android:textColorHint="@color/hint_color"
-        android:textColor="@color/primary_color"
+        android:textColor="?attr/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -68,10 +68,6 @@ public class ConverterFragment extends Fragment {
         int units_resource;
 
         switch (label) {
-            case "length":
-                units_resource = R.array.length_units;
-                converter = Length.getInstance();
-                break;
             case "mass":
                 units_resource = R.array.mass_units;
                 converter = Mass.getInstance();
@@ -94,6 +90,7 @@ public class ConverterFragment extends Fragment {
                 break;
             default:
                 units_resource = R.array.length_units;
+                converter = Length.getInstance();
         }
 
         dropDownAdapter = ArrayAdapter.createFromResource(container.getContext(), units_resource,
@@ -106,20 +103,20 @@ public class ConverterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Set up from unit spinner
+        valueView = view.findViewById(R.id.value);
         fromUnitDropDown = view.findViewById(R.id.from_unit_view);
+        toUnitDropDown = view.findViewById(R.id.to_unit_view);
+        resultView = view.findViewById(R.id.result);
+
         dropDownAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Set up from unit spinner
         fromUnitDropDown.setAdapter(dropDownAdapter);
         int nmUnits = fromUnitDropDown.getCount();
-        fromUnitDropDown.setSelection(nmUnits / 2); // Set default from unit to be meter
+        fromUnitDropDown.setSelection(nmUnits / 2); // Set default from unit to the unit in the middle
 
         // Set up to unit spinner
-        toUnitDropDown = view.findViewById(R.id.to_unit_view);
         toUnitDropDown.setAdapter(dropDownAdapter);
-
-        // initialize result
-        resultView = view.findViewById(R.id.result);
-        valueView = view.findViewById(R.id.value);
 
         // Set an event on the value field
         valueView.setOnKeyListener((View v, int keyCode, KeyEvent event) -> {
@@ -161,7 +158,6 @@ public class ConverterFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 calculateResult();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -173,7 +169,6 @@ public class ConverterFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 calculateResult();
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }

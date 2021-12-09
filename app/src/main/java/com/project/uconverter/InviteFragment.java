@@ -26,11 +26,6 @@ import android.widget.Toast;
 
 public class InviteFragment extends Fragment {
 
-    // UI Elements
-    private EditText linkView;
-    private ImageButton copyBtn;
-    private Button shareBtn;
-
     // Required empty public constructor
     public InviteFragment() { }
 
@@ -50,24 +45,23 @@ public class InviteFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        linkView = view.findViewById(R.id.link);
-        copyBtn = view.findViewById(R.id.button_copy_link);
-        shareBtn = view.findViewById(R.id.button_share_link);
+        String link = view.findViewById(R.id.link).toString();
+
         //Copying to clipboard
-        copyBtn.setOnClickListener((View v) -> {
+        view.findViewById(R.id.button_copy_link).setOnClickListener((View v) -> {
             ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clipData  = ClipData.newPlainText("EditText", linkView.getText().toString());
+            ClipData clipData  = ClipData.newPlainText("EditText", link);
             clipboard.setPrimaryClip(clipData);
             clipData.getDescription();
             Toast.makeText(getContext(), "Copied to clipboard!", Toast.LENGTH_SHORT).show();
         });
 
         //Share action
-        shareBtn.setOnClickListener((View v) -> {
+        view.findViewById(R.id.button_share_link).setOnClickListener((View v) -> {
             Intent sendIntent = new Intent()
                     .setType("message/rfc822")
                     .setAction(Intent.ACTION_SEND)
-                    .putExtra(Intent.EXTRA_TEXT, "Download this app:\n" + linkView.getText().toString())
+                    .putExtra(Intent.EXTRA_TEXT, "Download this app:\n" + link)
                     .setType("text/plain");
             try {
                 startActivity(Intent.createChooser(sendIntent, "Send to..."));

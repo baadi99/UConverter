@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/primary_color" tools:context=".AboutFragment">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
+    tools:context=".AboutFragment">
 
-    <TextView android:layout_width="match_parent" android:layout_height="60dp" android:textColor="@color/secondary_color" android:autoSizeMinTextSize="25sp" android:autoSizeMaxTextSize="30sp" android:autoSizeTextType="uniform" android:text="About us" android:textAlignment="center" app:layout_constraintBottom_toTopOf="@+id/dummy_text" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:autoSizeMaxTextSize="30sp"
+        android:autoSizeMinTextSize="25sp"
+        android:autoSizeTextType="uniform"
+        android:text="About us"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/dummy_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-    <TextView android:id="@+id/dummy_text" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/secondary_color" android:autoSizeTextType="uniform" android:justificationMode="inter_word" android:lineHeight="30dp" android:lineSpacingExtra="6dp" android:paddingHorizontal="30dp" android:text="@string/about_text" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/dummy_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoSizeTextType="uniform"
+        android:justificationMode="inter_word"
+        android:lineHeight="30dp"
+        android:lineSpacingExtra="6dp"
+        android:paddingHorizontal="30dp"
+        android:text="@string/about_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

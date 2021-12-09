@@ -2,7 +2,7 @@
 android:shape="rectangle"
 android:padding="10dp">
 
-<solid android:color="@color/secondary_color"/>
+<solid android:color="?attr/colorOnPrimary"/>
 <corners
     android:radius="10dp"
   />

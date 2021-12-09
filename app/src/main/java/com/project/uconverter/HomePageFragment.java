@@ -16,8 +16,6 @@ import java.util.ArrayList;
 
 public class HomePageFragment extends Fragment {
 
-    private ArrayList<View> cards;
-
     // Required empty public constructor
     public HomePageFragment() { }
 
@@ -37,8 +35,9 @@ public class HomePageFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //set listener on cards
-        cards = new ArrayList<>();
+
+        ArrayList<View> cards = new ArrayList<>();
+
         //Get all the cards and store them in cards list
         view.findViewsWithText(cards, "card", View.FIND_VIEWS_WITH_CONTENT_DESCRIPTION);
 

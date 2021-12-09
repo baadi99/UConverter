@@ -6,14 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="40dp"
-    android:background="@color/primary_color"
+    android:background="?attr/colorPrimary"
     tools:context=".InviteFragment">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:textColor="@color/secondary_color"
         android:autoSizeMaxTextSize="30sp"
         android:autoSizeMinTextSize="25sp"
         android:autoSizeTextType="uniform"
@@ -70,6 +69,7 @@
             android:layout_height="52dp"
             android:background="@drawable/rounded_corners_rect"
             android:backgroundTint="@color/accent_color"
+            android:textColor="@color/secondary_color"
             android:text="Send"
             />
     </LinearLayout>
